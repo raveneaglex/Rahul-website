@@ -259,6 +259,357 @@ footer {
                                                    <p>© 2026 Rahul Kumar Swami</p>
                                                    <p>My Personal Website | Made with HTML and CSS</p>
                                             </footer>
+  
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ULTIMATE GAMING ZONE</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+:root {
+  --neon: #00f7ff;
+  --pink: #ff00e6;
+  --bg: #050510;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Background video */
+#bg-video {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+  opacity: 0.28;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,20,.92),
+    rgba(35,0,45,.65),
+    rgba(0,30,60,.82)
+  );
+  z-index: -2;
+}
+
+/* Animated RGB background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent,
+    #00f7ff,
+    transparent,
+    #ff00e6,
+    transparent,
+    #7b00ff,
+    transparent
+  );
+  animation: rotate 12s linear infinite;
+  opacity: 0.12;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  border-bottom: 1px solid #00f7ff66;
+  background: #050510bb;
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  color: var(--neon);
+  font-size: 22px;
+  font-weight: 900;
+  text-shadow: 0 0 15px var(--neon);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 12px;
+  transition: .3s;
+}
+
+nav a:hover {
+  color: var(--pink);
+  text-shadow: 0 0 15px var(--pink);
+}
+
+/* Hero section */
+.hero {
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.tag {
+  color: var(--pink);
+  letter-spacing: 5px;
+  font-size: 12px;
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(35px, 8vw, 85px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: white;
+  text-shadow:
+    0 0 10px var(--neon),
+    0 0 30px var(--neon),
+    0 0 60px #0066ff;
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(90deg); }
+}
+
+.hero p {
+  color: #d8d8ff;
+  margin: 25px 0 35px;
+  max-width: 600px;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 8px;
+  color: white;
+  text-decoration: none;
+  border: 2px solid var(--neon);
+  background: #00f7ff18;
+  box-shadow: 0 0 15px #00f7ff66;
+  transition: .3s;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--neon);
+  color: #050510;
+  box-shadow: 0 0 35px var(--neon);
+  transform: scale(1.06);
+}
+
+.btn.pink {
+  border-color: var(--pink);
+  box-shadow: 0 0 15px #ff00e666;
+}
+
+.btn.pink:hover {
+  background: var(--pink);
+  box-shadow: 0 0 35px var(--pink);
+}
+
+/* Gaming cards */
+section {
+  padding: 60px 8%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(24px, 4vw, 40px);
+  margin-bottom: 40px;
+  color: var(--neon);
+  text-shadow: 0 0 20px var(--neon);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  padding: 30px 20px;
+  background: #101025cc;
+  border: 1px solid #00f7ff55;
+  box-shadow: inset 0 0 20px #00f7ff08;
+  transition: .35s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--pink), var(--neon));
+  transition: .5s;
+}
+
+.card:hover::before {
+  left: 0;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--pink);
+  box-shadow: 0 0 25px #ff00e633;
+}
+
+.card .emoji {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  color: var(--pink);
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #c6c6e0;
+  line-height: 1.8;
+  font-size: 12px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  color: var(--neon);
+  border-top: 1px solid #00f7ff55;
+  font-size: 11px;
+  line-height: 2;
+}
+
+@media(max-width: 600px) {
+  nav {
+    padding: 18px 5%;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  nav a {
+    margin-left: 8px;
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: 75vh;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Apni gaming video ka URL yahan lagao -->
+<video id="bg-video" autoplay muted loop playsinline>
+  <source
+    src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+    type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<nav>
+  <div class="logo">⚡ GAMER ZONE</div>
+  <div>
+    <a href="#home">HOME</a>
+    <a href="#games">GAMES</a>
+    <a href="#about">ABOUT</a>
+  </div>
+</nav>
+
+<main>
+  <div class="hero" id="home">
+    <div class="tag">WELCOME TO THE FUTURE</div>
+
+    <h1>GAME<br>WITHOUT LIMITS</h1>
+
+    <p>
+      ENTER THE BATTLE. UNLEASH YOUR POWER.
+      Experience the ultimate gaming world with
+      neon effects, RGB lights and next-level vibes.
+    </p>
+
+    <div>
+      <a href="#games" class="btn">⚡ EXPLORE GAMES</a>
+      <a href="#about" class="btn pink">🔥 DISCOVER MORE</a>
+    </div>
+  </div>
+
+  <section id="games">
+    <h2 class="section-title">⚔ GAMING ARENA ⚔</h2>
+
+    <div class="cards">
+      <div class="card">
+        <div class="emoji">🎯</div>
+        <h3>FPS BATTLES</h3>
+        <p>Sharpen your aim. Enter the battlefield and dominate the competition.</p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">🏎️</div>
+        <h3>RACING ZONE</h3>
+        <p>Speed, adrenaline and neon roads. Race beyond every limit.</p>
+      </div>
+
+      <div class="card">
+        <div class="emoji">👾</div>
+        <h3>ARCADE WORLD</h3>
+        <p>Level up your skills and explore a world of legendary adventures.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2 class="section-title">READY PLAYER ONE?</h2>
+    <p style="text-align:center;line-height:2;color:#ddd">
+      YOUR GAME. YOUR RULES. YOUR LEGACY.
+    </p>
+  </section>
+</main>
+
+<footer>
+  © 2026 GAMER ZONE | POWERED BY GAMING ⚡
+</footer>
 
 
 </body>
