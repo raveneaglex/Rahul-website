@@ -470,6 +470,370 @@ html { scroll-behavior: smooth; }
 </style>
 
 
+<!-- PROJECT AKASH: LIKE & COMMENT COMMUNITY -->
+<section id="community" class="community-section">
+  <div class="community-badge">🌌 COMMUNITY ZONE</div>
+
+  <h2>Project Akash Community</h2>
+  <p class="community-intro">
+    Explored my project? Share your love and thoughts with me!
+  </p>
+
+  <div class="community-actions">
+    <button id="likeBtn" class="neon-like-btn"
+            type="button" aria-pressed="false">
+      <span id="heartIcon">♡</span>
+      <span id="likeLabel">Like Project</span>
+    </button>
+
+    <div class="community-count">
+      ❤️ <span id="likeCount">0</span> Likes
+    </div>
+  </div>
+
+  <div class="comment-panel">
+    <h3>💬 Leave a Comment</h3>
+    <p class="comment-hint">
+      Tell me what you think about Project Akash.
+    </p>
+
+    <form id="commentForm">
+      <label for="visitorName">Your Name</label>
+      <input id="visitorName" type="text"
+             maxlength="50" placeholder="Enter your name"
+             required>
+
+      <label for="visitorComment">Your Comment</label>
+      <textarea id="visitorComment" rows="4"
+                maxlength="1000"
+                placeholder="Write your thoughts here..."
+                required></textarea>
+
+      <button type="submit" class="neon-comment-btn">
+        Post Comment ↗
+      </button>
+    </form>
+
+    <div class="comments-heading">
+      <h3>Community Comments</h3>
+      <span id="commentCount">0</span>
+    </div>
+
+    <div id="commentsList" aria-live="polite">
+      <p class="empty-comments">
+        No comments yet. Be the first to comment!
+      </p>
+    </div>
+  </div>
+
+  <p class="community-note">
+    Demo version: likes and comments are saved only in this browser.
+  </p>
+</section>
+
+<style>
+  .community-section {
+    box-sizing: border-box;
+    width: calc(100% - 30px);
+    max-width: 850px;
+    margin: 30px auto !important;
+    padding: 28px !important;
+    border: 1px solid #00f7ff !important;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #101025, #09091b) !important;
+    color: #f5f5ff;
+    box-shadow: 0 0 22px #00f7ff22;
+    font-family: Arial, sans-serif;
+  }
+
+  .community-section h2,
+  .community-section h3 {
+    color: #00f7ff;
+    text-shadow: 0 0 10px #00f7ff44;
+  }
+
+  .community-section h2 {
+    text-align: center;
+    border: 0;
+  }
+
+  .community-section p {
+    color: #d4d7ef;
+  }
+
+  .community-badge {
+    width: fit-content;
+    margin: 0 auto 12px;
+    padding: 7px 12px;
+    border: 1px solid #ff00e6;
+    border-radius: 30px;
+    color: #ff70f0;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .community-intro,
+  .comment-hint,
+  .community-note {
+    text-align: center;
+  }
+
+  .community-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 25px 0;
+  }
+
+  .neon-like-btn,
+  .neon-comment-btn {
+    border: 1px solid #00f7ff;
+    border-radius: 10px;
+    padding: 12px 20px;
+    color: #fff;
+    background: #101a35;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .25s;
+  }
+
+  .neon-like-btn:hover,
+  .neon-comment-btn:hover {
+    background: #123456;
+    box-shadow: 0 0 18px #00f7ff66;
+    transform: translateY(-2px);
+  }
+
+  .neon-like-btn.is-liked {
+    color: #ff65dd;
+    border-color: #ff00e6;
+    box-shadow: 0 0 15px #ff00e633;
+  }
+
+  #heartIcon {
+    font-size: 22px;
+    margin-right: 5px;
+  }
+
+  .community-count {
+    color: #00f7ff;
+    font-weight: bold;
+  }
+
+  .comment-panel {
+    padding: 20px;
+    background: #080817;
+    border: 1px solid #34345c;
+    border-radius: 14px;
+  }
+
+  .community-section label {
+    display: block;
+    margin: 15px 0 6px;
+    color: #00f7ff;
+    font-size: 14px;
+  }
+
+  .community-section input,
+  .community-section textarea {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 12px;
+    color: white;
+    background: #14142b;
+    border: 1px solid #44446b;
+    border-radius: 8px;
+    font: inherit;
+  }
+
+  .community-section input:focus,
+  .community-section textarea:focus {
+    outline: 1px solid #00f7ff;
+    border-color: #00f7ff;
+  }
+
+  .community-section textarea {
+    resize: vertical;
+  }
+
+  .neon-comment-btn {
+    margin-top: 14px;
+    background: #152c46;
+  }
+
+  .comments-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 30px;
+    border-bottom: 1px solid #34345c;
+  }
+
+  #commentCount {
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: #222249;
+    color: #00f7ff;
+  }
+
+  .comment-item {
+    margin-top: 14px;
+    padding: 14px;
+    background: #121229;
+    border-left: 3px solid #ff00e6;
+    border-radius: 7px;
+    overflow-wrap: anywhere;
+  }
+
+  .comment-item strong {
+    color: #00f7ff;
+  }
+
+  .comment-item p {
+    white-space: pre-wrap;
+    margin-bottom: 0;
+  }
+
+  .empty-comments {
+    text-align: center;
+    padding: 12px 0;
+  }
+
+  .community-note {
+    font-size: 12px;
+    opacity: .8;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 600px) {
+    .community-section {
+      padding: 18px !important;
+    }
+
+    .comment-panel {
+      padding: 14px;
+    }
+
+    .community-actions {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+
+  const LIKE_KEY = "akash_demo_liked";
+  const COMMENTS_KEY = "akash_demo_comments";
+
+  // Demo storage: this browser only.
+  let liked = localStorage.getItem(LIKE_KEY) === "true";
+  let comments = [];
+
+  try {
+    const saved = JSON.parse(
+      localStorage.getItem(COMMENTS_KEY) || "[]"
+    );
+
+    if (Array.isArray(saved)) {
+      comments = saved.filter(item =>
+        item &&
+        typeof item.name === "string" &&
+        typeof item.text === "string"
+      );
+    }
+  } catch {
+    comments = [];
+  }
+
+  function updateLikeUI() {
+    $("heartIcon").textContent = liked ? "♥" : "♡";
+    $("likeLabel").textContent =
+      liked ? "Liked!" : "Like Project";
+
+    $("likeBtn").classList.toggle("is-liked", liked);
+    $("likeBtn").setAttribute("aria-pressed", String(liked));
+
+    // Demo only: count represents this browser's like.
+    $("likeCount").textContent = liked ? "1" : "0";
+  }
+
+  function renderComments() {
+    const list = $("commentsList");
+    list.replaceChildren();
+
+    $("commentCount").textContent = comments.length;
+
+    if (comments.length === 0) {
+      const empty = document.createElement("p");
+      empty.className = "empty-comments";
+      empty.textContent =
+        "No comments yet. Be the first to comment!";
+      list.appendChild(empty);
+      return;
+    }
+
+    [...comments].reverse().forEach(comment => {
+      const card = document.createElement("article");
+      card.className = "comment-item";
+
+      const name = document.createElement("strong");
+      name.textContent = comment.name;
+
+      const message = document.createElement("p");
+      message.textContent = comment.text;
+
+      card.append(name, message);
+      list.appendChild(card);
+    });
+  }
+
+  $("likeBtn").addEventListener("click", () => {
+    liked = !liked;
+    localStorage.setItem(LIKE_KEY, String(liked));
+    updateLikeUI();
+  });
+
+  $("commentForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const name = $("visitorName").value.trim();
+    const message = $("visitorComment").value.trim();
+
+    if (!name || !message) return;
+
+    comments.push({
+      name: name.slice(0, 50),
+      text: message.slice(0, 1000)
+    });
+
+    try {
+      localStorage.setItem(
+        COMMENTS_KEY,
+        JSON.stringify(comments)
+      );
+    } catch {
+      comments.pop();
+      alert("Unable to save comments in this browser.");
+      return;
+    }
+
+    $("commentForm").reset();
+    renderComments();
+  });
+
+  updateLikeUI();
+  renderComments();
+})();
+</script>
+
+  
 <!-- Animated universe background -->
 <div id="space-universe" aria-hidden="true">
   <canvas id="space-stars"></canvas>
