@@ -1315,6 +1315,7 @@ const enteredPassword = passwordInput.value.trim();
 if (enteredPassword === PHOTO_PASSWORD) {
 document.getElementById("photo-lock").hidden = true;
 document.getElementById("secret-photo").hidden = false;
+  document.getElementById("secret-photo").style.display = "none";
 document.getElementById("payment-section").hidden = true;
 document.getElementById("password-section").hidden = true;
 document.getElementById("download-section").hidden = false;
