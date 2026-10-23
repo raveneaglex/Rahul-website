@@ -1067,7 +1067,270 @@ html { scroll-behavior: smooth; }
 })();
 </script>
 
-
+<!-- SPACE ARCHIVE -->
+<section id="space-archive">
+<div class="space-card">
+<div class="space-label">✦ CLASSIFIED SPACE ARCHIVE ✦</div>
+<h2>Unlock the Secret</h2>
+<p class="space-description">
+A hidden image awaits beyond the event horizon.
+</p>
+<!-- LOCKED PHOTO -->
+<div class="photo-container" id="photo-container">
+<div class="photo-lock" id="photo-lock">
+<div class="lock-icon">🔒</div>
+<p>PHOTO LOCKED</p>
+<span>Pay to receive the access password</span>
+</div>
+<img
+id="secret-photo"
+src="secret-photo.jpg"
+alt="Secret archive photo"
+hidden
+>
+</div>
+<!-- PAYMENT -->
+<div id="payment-section">
+<h3>Enter the Archive</h3>
+<p>Pay ₹1 or more using the QR code below.</p>
+<img
+src="payment-qr.png"
+alt="UPI Payment QR Code"
+class="payment-qr"
+>
+<p class="payment-note">
+After payment, send your payment screenshot and
+phone number to the website owner on WhatsApp.
+</p>
+<a
+id="whatsapp-button"
+class="space-button"
+href="#"
+target="_blank"
+rel="noopener"
+>
+SEND PAYMENT PROOF
+</a>
+</div>
+<!-- PASSWORD -->
+<div id="password-section">
+<h3>Access Code</h3>
+<p>Enter the password received from the owner.</p>
+<input
+type="password"
+id="archive-password"
+placeholder="Enter password"
+>
+<button id="unlock-button" class="space-button">
+UNLOCK PHOTO
+</button>
+<p id="password-message"></p>
+</div>
+<!-- DOWNLOAD -->
+<div id="download-section" hidden>
+<p class="success-message">✦ ACCESS GRANTED ✦</p>
+<a
+href="secret-photo.jpg"
+download="secret-photo.jpg"
+class="space-button"
+>
+DOWNLOAD PHOTO
+</a>
+</div>
+</div>
+</section>
+<style>
+#space-archive {
+background: radial-gradient(circle at top, #19182e, #030308 75%);
+color: white;
+padding: 70px 15px;
+font-family: Arial, sans-serif;
+text-align: center;
+}
+.space-card {
+max-width: 650px;
+margin: auto;
+padding: 30px 20px;
+border: 1px solid #6653a5;
+border-radius: 20px;
+background: rgba(15, 13, 30, 0.95);
+box-shadow: 0 0 35px rgba(100, 70, 200, 0.15);
+}
+.space-label {
+color: #a99aff;
+letter-spacing: 3px;
+font-size: 12px;
+}
+#space-archive h2 {
+font-size: 32px;
+margin: 18px 0;
+}
+.space-description {
+color: #b8b6cc;
+margin-bottom: 30px;
+}
+.photo-container {
+position: relative;
+width: 100%;
+min-height: 230px;
+background: #000;
+border-radius: 15px;
+overflow: hidden;
+margin-bottom: 30px;
+}
+.photo-lock {
+min-height: 230px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+color: #aaa;
+background:
+radial-gradient(circle, #25183d 0%, #090812 50%, #000 80%);
+}
+.lock-icon {
+font-size: 55px;
+margin-bottom: 10px;
+}
+.photo-lock p {
+letter-spacing: 4px;
+font-weight: bold;
+}
+.photo-lock span {
+font-size: 13px;
+color: #777;
+}
+#secret-photo {
+display: block;
+width: 100%;
+height: auto;
+max-height: 650px;
+object-fit: contain;
+}
+.payment-qr {
+width: 210px;
+max-width: 100%;
+height: auto;
+background: white;
+padding: 10px;
+border-radius: 12px;
+margin: 15px auto;
+}
+.payment-note {
+color: #c2bfd4;
+line-height: 1.7;
+max-width: 450px;
+margin: 20px auto;
+}
+.space-button {
+display: inline-block;
+background: linear-gradient(135deg, #7356d8, #39247c);
+color: white;
+padding: 14px 25px;
+border: 1px solid #a18bff;
+border-radius: 10px;
+text-decoration: none;
+font-size: 14px;
+font-weight: bold;
+cursor: pointer;
+margin: 10px;
+transition: 0.2s;
+}
+.space-button:hover {
+transform: scale(1.04);
+box-shadow: 0 0 20px #7356d8;
+}
+#password-section {
+margin-top: 30px;
+padding-top: 25px;
+border-top: 1px solid #30294c;
+}
+#archive-password {
+display: block;
+width: 90%;
+max-width: 350px;
+margin: 15px auto;
+padding: 14px;
+border-radius: 8px;
+border: 1px solid #51447c;
+background: #080812;
+color: white;
+font-size: 16px;
+box-sizing: border-box;
+}
+#password-message {
+color: #ff9c9c;
+min-height: 20px;
+}
+.success-message {
+color: #a8ffcc;
+letter-spacing: 2px;
+margin: 20px;
+}
+#download-section {
+margin-top: 25px;
+}
+@media (max-width: 480px) {
+.space-card {
+padding: 25px 12px;
+}
+#space-archive h2 {
+font-size: 25px;
+}
+}
+</style>
+<script>
+/* =========================================
+WEBSITE SETTINGS — CHANGE THESE VALUES
+========================================= */
+// 1. Your WhatsApp number, including country code.
+// Example format for India: 91 followed by your 10-digit number.
+// Do not include + or spaces.
+const OWNER_WHATSAPP = "917568026548";
+// 2. Current photo password.
+// Change this whenever you want to lock the photo again.
+const PHOTO_PASSWORD = "SPACE1234";
+/* =========================================
+PAYMENT PROOF WHATSAPP BUTTON
+========================================= */
+const whatsappMessage =
+"Hello! I have paid for the Space Archive photo.\n\n" +
+"Payment amount: ₹\n" +
+"UPI transaction reference: \n" +
+"My phone number: \n\n" +
+"I am attaching my payment screenshot.";
+document.getElementById("whatsapp-button").href =
+"https://wa.me/" +
+OWNER_WHATSAPP +
+"?text=" +
+encodeURIComponent(whatsappMessage);
+/* =========================================
+PHOTO UNLOCK
+========================================= */
+const unlockButton = document.getElementById("unlock-button");
+const passwordInput = document.getElementById("archive-password");
+const passwordMessage = document.getElementById("password-message");
+unlockButton.addEventListener("click", function () {
+const enteredPassword = passwordInput.value.trim();
+if (enteredPassword === PHOTO_PASSWORD) {
+document.getElementById("photo-lock").hidden = true;
+document.getElementById("secret-photo").hidden = false;
+document.getElementById("payment-section").hidden = true;
+document.getElementById("password-section").hidden = true;
+document.getElementById("download-section").hidden = false;
+passwordMessage.textContent = "";
+} else {
+passwordMessage.textContent =
+"Incorrect password. Please check your access code.";
+}
+});
+// Press Enter to unlock.
+passwordInput.addEventListener("keydown", function (event) {
+if (event.key === "Enter") {
+unlockButton.click();
+}
+});
+</script>
 
 </body>
 </html>
