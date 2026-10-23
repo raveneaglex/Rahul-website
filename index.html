@@ -1332,5 +1332,31 @@ unlockButton.click();
 });
 </script>
 
+<div id="lion-box" style="text-align:center; padding:25px;">
+<video
+id="lion-video"
+src="lion-roar.mp4"
+poster="real-lion.jpg"
+muted
+playsinline
+preload="auto"
+style="width:280px; max-width:90%; border-radius:15px; cursor:pointer;"
+></video> <p style="color:white;">Tap the lion to hear its roar!</p>
+</div><audio id="lion-sound" src="lion-roar.mp3" preload="auto"></audio>
+<script>
+const lionVideo = document.getElementById("lion-video");
+const lionSound = document.getElementById("lion-sound");
+lionVideo.addEventListener("click", function() {
+lionVideo.currentTime = 0;
+lionSound.currentTime = 0;
+lionVideo.play();
+lionSound.play();
+});
+lionVideo.addEventListener("ended", function() {
+lionSound.pause();
+lionSound.currentTime = 0;
+});
+</script>
+  
 </body>
 </html>
