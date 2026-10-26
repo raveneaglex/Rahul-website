@@ -1067,7 +1067,182 @@ html { scroll-behavior: smooth; }
 })();
 </script>
 
+<!-- SECRET PHOTO VAULT START -->
+<style>
+  .secret-vault {
+    max-width: 650px;
+    margin: 60px auto 35px;
+    padding: 28px;
+    border: 1px solid rgba(100, 180, 255, 0.4);
+    border-radius: 22px;
+    background: linear-gradient(145deg, #101a35, #080d1b);
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(40, 130, 255, 0.15);
+    font-family: Arial, sans-serif;
+  }
 
+  .secret-vault .vault-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+  }
+
+  .secret-vault h2 {
+    color: #77c7ff;
+    margin: 10px 0;
+  }
+
+  .secret-vault .vault-description {
+    color: #c4d2e8;
+    line-height: 1.7;
+  }
+
+  .secret-vault .riddle-box {
+    margin: 22px 0;
+    padding: 18px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.12);
+    line-height: 1.8;
+  }
+
+  .secret-vault input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 350px;
+    padding: 13px;
+    margin: 10px auto;
+    border-radius: 9px;
+    border: 1px solid #526b91;
+    background: #0b1325;
+    color: white;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .secret-vault button {
+    padding: 12px 24px;
+    margin: 8px;
+    border: none;
+    border-radius: 9px;
+    background: linear-gradient(90deg, #1687ff, #7255ff);
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .secret-vault button:hover {
+    opacity: 0.88;
+  }
+
+  .secret-vault .vault-message {
+    min-height: 24px;
+    margin-top: 12px;
+    color: #ffd580;
+  }
+
+  .secret-vault #secret-photo-result[hidden] {
+    display: none !important;
+  }
+
+  .secret-vault #secret-photo-result img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto 10px;
+    border-radius: 14px;
+    border: 1px solid #5275a5;
+  }
+
+  .secret-vault .unlocked-label {
+    color: #75ffb0;
+    font-weight: bold;
+  }
+</style>
+
+<section class="secret-vault" id="secret-vault">
+  <div class="vault-icon" id="vault-icon" aria-hidden="true">🔒</div>
+
+  <h2>Secret Photo Vault</h2>
+
+  <p class="vault-description">
+    Ek secret photo is vault ke andar chhupi hai.<br>
+    Neeche di gayi paheli solve karo aur vault unlock karo!
+  </p>
+
+  <div class="riddle-box">
+    <strong>🧩 Paheli:</strong><br>
+    Main ek aisi cheez hoon jo tumhari hoti hai,<br>
+    lekin tumse zyada doosre log mera istemal karte hain.<br>
+    Batao main kya hoon?
+  </div>
+
+  <label for="vault-answer">Apna jawab likho:</label><br>
+
+  <input
+    id="vault-answer"
+    type="text"
+    placeholder="Jawab yahan likho..."
+    autocomplete="off"
+  >
+
+  <br>
+
+  <button type="button" id="vault-unlock-btn">
+    🔓 Unlock Vault
+  </button>
+
+  <p class="vault-message" id="vault-message" role="status" aria-live="polite"></p>
+
+  <div id="secret-photo-result" hidden>
+    <p class="unlocked-label">✅ Vault Unlocked! Secret Photo Mil Gayi!</p>
+
+    <img
+      src="secret-photo.jpg"
+      alt="Secret photo"
+    >
+  </div>
+</section>
+
+<script>
+(function () {
+  const answerInput = document.getElementById("vault-answer");
+  const unlockButton = document.getElementById("vault-unlock-btn");
+  const message = document.getElementById("vault-message");
+  const photoResult = document.getElementById("secret-photo-result");
+  const vaultIcon = document.getElementById("vault-icon");
+
+  function unlockVault() {
+    const answer = answerInput.value.trim().toLowerCase();
+
+    // Paheli ka jawab: tumhara naam
+    const correctAnswers = ["naam", "name"];
+
+    if (correctAnswers.includes(answer)) {
+      photoResult.hidden = false;
+      vaultIcon.textContent = "🔓";
+      message.textContent = "Sahi jawab! Vault unlock ho gaya.";
+      message.style.color = "#75ffb0";
+      unlockButton.hidden = true;
+      answerInput.hidden = true;
+    } else {
+      message.textContent = "❌ Jawab sahi nahi hai. Dobara socho!";
+      message.style.color = "#ff9b9b";
+    }
+  }
+
+  unlockButton.addEventListener("click", unlockVault);
+
+  answerInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      unlockVault();
+    }
+  });
+})();
+</script>
+<!-- SECRET PHOTO VAULT END -->
 
 
 
