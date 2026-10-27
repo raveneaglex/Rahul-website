@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080a0e">
+<meta name="description" content="The Forgotten Files — a cinematic supernatural detective mystery game.">
+<title>The Forgotten Files | Case 001</title>
+<style>
+:root{--bg:#080a0e;--panel:#111720;--panel2:#171f2a;--line:#384452;--ink:#f2eee7;--muted:#aeb8c4;--gold:#e7bd7b;--red:#b84a43;--green:#85d5a4}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 50% -15%,#26384a 0,transparent 55%),var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;min-height:100vh}button,input{font:inherit}button{cursor:pointer}.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px clamp(14px,4vw,42px);border-bottom:1px solid #34404c;background:#080a0eea;position:sticky;top:0;z-index:5;backdrop-filter:blur(12px)}.brand{font:800 12px Arial,sans-serif;letter-spacing:2px;color:var(--gold)}.top-actions{display:flex;gap:8px;flex-wrap:wrap}.small-btn,.primary-btn,.choice-btn{border:1px solid #536273;background:#17202b;color:var(--ink);padding:10px 14px;border-radius:5px}.small-btn:hover,.choice-btn:hover{border-color:var(--gold)}.page{max-width:1120px;margin:auto;padding:26px clamp(14px,3vw,30px) 60px}.hero{min-height:310px;position:relative;overflow:hidden;border:1px solid #4a4b4a;border-radius:8px;display:flex;align-items:flex-end;background:linear-gradient(0deg,#06080cf5 0%,#06080c55 70%),url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1800&q=85') center 52%/cover}.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#080a0e88,transparent 85%)}.hero-content{position:relative;z-index:1;padding:clamp(22px,5vw,52px);max-width:760px}.eyebrow{font:700 10px Arial,sans-serif;letter-spacing:3px;color:var(--gold)}h1{font:900 clamp(32px,6vw,62px)/.98 Arial,sans-serif;letter-spacing:-2px;margin:12px 0;text-shadow:0 4px 22px #000}h1 span{color:var(--gold)}.hero p{max-width:570px;color:#d3d7dc;line-height:1.7}.primary-btn{background:linear-gradient(120deg,#8d322d,#5b2022);border-color:#c47765;font:800 12px Arial,sans-serif;letter-spacing:1.3px;padding:13px 18px}.primary-btn:hover{filter:brightness(1.18)}.section-label{font:800 11px Arial,sans-serif;letter-spacing:2.5px;color:var(--gold);margin:28px 0 12px}.case-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.case-card{border:1px solid var(--line);background:linear-gradient(145deg,#161d26,#0d1117);padding:18px;border-radius:7px;min-height:145px}.case-card .num{font:700 10px Arial,sans-serif;letter-spacing:2px;color:var(--gold)}.case-card h3{font:700 18px Arial,sans-serif;margin:10px 0}.case-card p{font:13px/1.6 Arial,sans-serif;color:var(--muted);margin-bottom:0}.case-card.locked{opacity:.52}.game-shell{display:none;margin-top:22px;border:1px solid #3b4653;border-radius:8px;background:#0c1016;overflow:hidden}.game-shell.active{display:block}.game-head{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:15px 18px;background:#151c25;border-bottom:1px solid var(--line)}.case-kicker{font:700 10px Arial,sans-serif;letter-spacing:2px;color:var(--gold)}.game-head h2{margin:5px 0 0;font:800 20px Arial,sans-serif}.progress{font:12px Arial,sans-serif;color:var(--muted);text-align:right}.progress-bar{height:4px;background:#2b333e}.progress-fill{height:100%;width:0;background:var(--gold);transition:width .3s}.game-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,.8fr)}.scene-col{padding:18px;min-width:0}.scene{position:relative;min-height:300px;overflow:hidden;border:1px solid #414a53;border-radius:5px;background:#1c2228}.scene-image{display:block;width:100%;height:330px;object-fit:cover;filter:brightness(.68) saturate(.65)}.scene-overlay{position:absolute;inset:0;background:linear-gradient(0deg,#05070be8,transparent 60%),linear-gradient(90deg,#080b10aa,transparent)}.scene-caption{position:absolute;left:18px;right:18px;bottom:16px}.scene-caption .tiny{font:700 9px Arial,sans-serif;letter-spacing:2px;color:var(--gold)}.scene-caption h3{font:700 22px Arial,sans-serif;margin:7px 0}.scene-caption p{font:14px/1.65 Arial,sans-serif;color:#e0e3e6;margin:0;max-width:680px}.hotspot{position:absolute;z-index:2;width:34px;height:34px;border-radius:50%;border:2px solid #ffe1a3;background:#a93b2eaa;color:white;font:800 13px Arial,sans-serif;box-shadow:0 0 0 6px #f6c36a22,0 0 20px #f6c36a77;animation:pulse 2s infinite}.hotspot.found{background:#237b54;border-color:#b3ffd0;box-shadow:0 0 0 5px #85d5a422}.hotspot:focus-visible{outline:3px solid white;outline-offset:3px}@keyframes pulse{50%{box-shadow:0 0 0 10px #f6c36a08,0 0 25px #f6c36a99}}.instruction{font:12px/1.6 Arial,sans-serif;color:var(--muted);margin:11px 0}.dialogue{margin-top:14px;border-left:3px solid var(--gold);background:#151b23;padding:15px 17px;color:#dce1e7;line-height:1.7}.dialogue strong{color:var(--gold);font:800 10px Arial,sans-serif;letter-spacing:1.5px;display:block;margin-bottom:5px}.side-col{padding:18px;border-left:1px solid #303a45;background:#0e131a}.side-col h3{font:800 12px Arial,sans-serif;letter-spacing:1.5px;color:var(--gold);margin:2px 0 12px}.evidence-list{display:grid;gap:8px}.evidence-item{padding:11px;border:1px solid #303b47;background:#141b24;border-radius:4px}.evidence-item b{font:700 12px Arial,sans-serif;display:block;margin-bottom:4px}.evidence-item span{font:12px/1.5 Arial,sans-serif;color:var(--muted)}.empty{font:12px/1.6 Arial,sans-serif;color:#7f8b98;padding:12px;border:1px dashed #384452}.puzzle-box{margin-top:18px;padding:16px;border:1px solid #4b535e;background:#121821;border-radius:5px}.puzzle-box h3{font:800 12px Arial,sans-serif;letter-spacing:1px;color:var(--gold);margin:0 0 9px}.puzzle-box p{font:14px/1.7 Arial,sans-serif;color:#d8dfe7}.puzzle-options{display:grid;gap:8px}.choice-btn{text-align:left;font:13px/1.45 Arial,sans-serif}.choice-btn.correct{border-color:var(--green);color:var(--green)}.choice-btn.wrong{border-color:#e77870;color:#ffaaa4}.feedback{min-height:22px;font:12px/1.6 Arial,sans-serif;color:var(--gold);margin:10px 0 0}.next-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:15px}.next-row .primary-btn:disabled{opacity:.35;cursor:not-allowed}.notebook-note{font:12px/1.7 Arial,sans-serif;color:var(--muted);margin-top:16px}.ending{display:none;margin-top:18px;padding:24px;border:1px solid #8d6c45;background:linear-gradient(130deg,#211d1a,#10141b);text-align:center}.ending.show{display:block}.ending h3{font:800 25px Arial,sans-serif;color:var(--gold)}.ending p{line-height:1.8;color:#d6dce3}.footer-note{text-align:center;color:#687584;font:11px/1.7 Arial,sans-serif;margin-top:32px}.hidden{display:none!important}
+@media(max-width:760px){.game-layout{grid-template-columns:1fr}.side-col{border-left:0;border-top:1px solid #303a45}.case-grid{grid-template-columns:1fr}.scene-image{height:300px}.hero{min-height:370px}.game-head{align-items:flex-start}.progress{max-width:105px}.scene{min-height:290px}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">◈ THE FORGOTTEN FILES</div>
+  <div class="top-actions"><button class="small-btn" id="soundToggle" type="button" aria-pressed="false">♪ Sound: Off</button><button class="small-btn" id="backBtn" type="button">← Website</button></div>
+</header>
+<main class="page">
+  <section class="hero" id="intro">
+    <div class="hero-content">
+      <div class="eyebrow">PARANORMAL INVESTIGATION UNIT • ARCHIVE 1998</div>
+      <h1>THE FORGOTTEN<br><span>FILES</span></h1>
+      <p>Seven people vanished. One photograph survived. And the shadows tell a different story. Read the evidence carefully. Every answer opens another door.</p>
+      <button class="primary-btn" id="startBtn" type="button">OPEN CASE FILE 001 ↗</button>
+    </div>
+  </section>
+  <div class="section-label">YOUR CASE ARCHIVE</div>
+  <div class="case-grid" id="caseGrid">
+    <article class="case-card" id="card1"><div class="num">CASE 001 • AVAILABLE</div><h3>The Eighth Shadow</h3><p>A photograph from an abandoned mansion contains one impossible detail.</p></article>
+    <article class="case-card locked" id="card2"><div class="num">CASE 002 • LOCKED</div><h3>The Locked Room</h3><p>A voice comes from a room sealed for twenty-six years.</p></article>
+    <article class="case-card locked" id="card3"><div class="num">CASE 003 • LOCKED</div><h3>Room No. 13</h3><p>A hotel room exists in photographs, but not on any floor plan.</p></article>
+  </div>
+
+  <section class="game-shell" id="gameShell" aria-live="polite">
+    <div class="game-head"><div><div class="case-kicker">CASE 001 / EVIDENCE REVIEW</div><h2 id="stepTitle">The Arrival</h2></div><div class="progress"><span id="progressText">Evidence 0 of 3</span><div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div></div></div>
+    <div class="game-layout">
+      <div class="scene-col">
+        <div class="scene" id="scene">
+          <img class="scene-image" id="sceneImage" src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1400&q=85" alt="Mysterious abandoned building at night">
+          <div class="scene-overlay"></div>
+          <button class="hotspot" style="left:24%;top:39%" data-clue="photo" aria-label="Investigate old photograph">1</button>
+          <button class="hotspot" style="left:67%;top:50%" data-clue="clock" aria-label="Investigate stopped clock">2</button>
+          <button class="hotspot" style="left:47%;top:68%" data-clue="letter" aria-label="Investigate old letter">3</button>
+          <div class="scene-caption"><div class="tiny" id="sceneKicker">LOCATION • BLACKWOOD MANSION</div><h3 id="sceneTitle">The Evidence Room</h3><p id="sceneDescription">The rain has stopped, but the mansion still seems to be listening. Three objects have been marked for closer inspection.</p></div>
+        </div>
+        <p class="instruction">◉ Select each numbered marker in the scene to inspect evidence. Find all three clues before making your deduction.</p>
+        <div class="dialogue"><strong id="speaker">FIELD NOTE • DETECTIVE</strong><span id="dialogueText">The anonymous envelope arrived at 02:13. Inside was a photograph, a key with no lock, and a note: “Count the shadows, not the people.”</span></div>
+        <div class="puzzle-box" id="puzzleBox">
+          <h3>DEDUCTION 01 — WHAT DOES THE EVIDENCE SAY?</h3>
+          <p id="puzzleQuestion">You have not examined all the evidence yet. Investigate the three numbered markers first.</p>
+          <div class="puzzle-options" id="puzzleOptions"></div>
+          <p class="feedback" id="feedback" role="status"></p>
+          <div class="next-row"><span class="instruction" id="nextHint">Evidence collected: 0/3</span><button class="primary-btn" id="nextBtn" type="button" disabled>CONTINUE →</button></div>
+        </div>
+        <div class="ending" id="ending"><div class="eyebrow">CASE 001 • PARTIAL CONCLUSION</div><h3>The Eighth Shadow</h3><p id="endingText"></p><button class="primary-btn" id="finishBtn" type="button">RETURN TO CASE ARCHIVE</button></div>
+      </div>
+      <aside class="side-col">
+        <h3>▤ DETECTIVE NOTEBOOK</h3>
+        <p class="instruction">Every clue you find is stored here. Later cases will refer back to evidence from earlier files.</p>
+        <div class="evidence-list" id="evidenceList"><div class="empty">No evidence collected yet. Inspect the scene.</div></div>
+        <div class="notebook-note"><b style="color:var(--gold)">CASE RULE</b><br>Do not trust a single clue. Compare the photograph, the clock, and the letter before choosing your theory.</div>
+        <div class="notebook-note"><b style="color:var(--gold)">PROGRESS</b><br><span id="saveStatus">Progress is saved locally in this browser.</span><br><button class="small-btn" id="resetBtn" type="button" style="margin-top:10px">Reset case progress</button></div>
+      </aside>
+    </div>
+  </section>
+  <p class="footer-note">A fictional supernatural mystery game. Your progress is stored in this browser only. External scene photographs require an internet connection.</p>
+</main>
+<script>
+(() => {
+  const $ = id => document.getElementById(id);
+  const KEY = "forgotten_files_case001_v1";
+  const clues = {
+    photo:{title:"The Eight-Person Photograph",detail:"Seven people stand on the mansion steps. On the wet ground, eight distinct shadows stretch toward the camera. One shadow has no visible owner.",note:"Photograph: 7 people, 8 shadows. The extra shadow points toward the locked east wing.",dialogue:"The negative is genuine. The extra shadow appears on the original print, not just a digital copy."},
+    clock:{title:"The Stopped Clock",detail:"The hallway clock stopped at 11:47. Dust marks suggest it was moved recently, but the hands are rusted in place.",note:"Clock: stopped at 11:47, but its position may have been altered after the disappearance.",dialogue:"A stopped clock gives you a time. It does not prove that the event happened at that time."},
+    letter:{title:"The Anonymous Letter",detail:"The paper reads: “When the house goes quiet, the missing one comes home.” The bottom corner bears the number 13.",note:"Letter: mentions “the missing one” and carries the number 13.",dialogue:"The handwriting is shaky. The number 13 is written in a different ink from the rest of the message."}
+  };
+  const order = ["photo","clock","letter"];
+  const state = {found:[], solved:false, completed:false, unlocked:1};
+  let soundOn = false, audioCtx = null;
+
+  function save(){try{localStorage.setItem(KEY,JSON.stringify(state));$("saveStatus").textContent="Saved just now in this browser.";}catch{$("saveStatus").textContent="Browser storage unavailable; progress may not persist.";}}
+  function load(){try{const x=JSON.parse(localStorage.getItem(KEY)||"null");if(x&&Array.isArray(x.found)){state.found=x.found.filter(k=>order.includes(k));state.solved=!!x.solved;state.completed=!!x.completed;state.unlocked=Math.max(1,Math.min(3,Number(x.unlocked)||1));}}catch{}}
+  function beep(freq=420,duration=.09){if(!soundOn)return;try{audioCtx=audioCtx||new(window.AudioContext||window.webkitAudioContext)();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=freq;o.type="sine";g.gain.value=.035;o.connect(g);g.connect(audioCtx.destination);o.start();g.gain.exponentialRampToValueAtTime(.001,audioCtx.currentTime+duration);o.stop(audioCtx.currentTime+duration);}catch{}}
+  function renderEvidence(){const list=$("evidenceList");list.replaceChildren();if(!state.found.length){list.innerHTML='<div class="empty">No evidence collected yet. Inspect the scene.</div>';}else state.found.forEach(k=>{const d=clues[k],item=document.createElement("div");item.className="evidence-item";const b=document.createElement("b"),s=document.createElement("span");b.textContent="✓ "+d.title;s.textContent=d.note;item.append(b,s);list.append(item);});$("progressText").textContent=`Evidence ${state.found.length} of 3`; $("progressFill").style.width=(state.found.length/3*100)+"%";$("nextHint").textContent=`Evidence collected: ${state.found.length}/3`;}
+  function showPuzzle(){const ready=state.found.length===3; $("puzzleQuestion").textContent=ready?"The photograph shows seven people but eight shadows. The clock is unreliable, and the letter mentions “the missing one” with the number 13. Which conclusion is best supported by the evidence?":"You have not examined all the evidence yet. Investigate the three numbered markers first.";const options=$("puzzleOptions");options.replaceChildren();if(ready&&!state.solved){[["A","The clock proves the disappearance happened at exactly 11:47."],["B","The extra shadow is a clue; the number 13 may connect this case to another location."],["C","The caretaker must be the culprit because the clock was moved."]].forEach(([v,t])=>{const b=document.createElement("button");b.className="choice-btn";b.type="button";b.textContent=v+". "+t;b.addEventListener("click",()=>answer(v,b));options.append(b);});}else if(state.solved){const p=document.createElement("p");p.style.color="var(--green)";p.textContent="✓ Deduction accepted. The number 13 is your lead for the next file.";options.append(p);} }
+  function answer(v,btn){const fb=$("feedback");if(v==="B"){state.solved=true;fb.textContent="Correct. You separated a clue from an assumption. The number 13 connects to the next case.";fb.style.color="var(--green)";btn.classList.add("correct");[...$("puzzleOptions").children].forEach(b=>b.disabled=true);$("nextBtn").disabled=false;beep(660);save();showPuzzle();}else{fb.textContent="Not enough evidence. Re-read the notebook: what is a clue, and what is only an assumption?";fb.style.color="#ffaaa4";btn.classList.add("wrong");beep(180);}}
+  function inspect(key,button){if(state.found.includes(key)){ $("speaker").textContent=clues[key].title.toUpperCase();$("dialogueText").textContent=clues[key].dialogue;return;}state.found.push(key);button.classList.add("found");button.textContent="✓";button.setAttribute("aria-label",clues[key].title+" (found)");$("speaker").textContent=clues[key].title.toUpperCase();$("dialogueText").textContent=clues[key].dialogue;renderEvidence();showPuzzle();beep(480);if(state.found.length===3){$("feedback").textContent="All evidence collected. Now make your deduction.";}}
+  function openGame(){ $("gameShell").classList.add("active");$("gameShell").scrollIntoView({behavior:"smooth",block:"start"});renderEvidence();showPuzzle();if(state.solved){$("feedback").textContent="Deduction already solved. Continue when ready.";$("nextBtn").disabled=false;} }
+  function finishCase(){state.completed=true;state.unlocked=Math.max(state.unlocked,2);save();$("ending").classList.add("show");$("endingText").textContent="The extra shadow has no confirmed owner. The number 13 appears in an unrelated hotel ledger dated the same night. Your conclusion is not the whole truth — it is a lead. Case 002 is now marked as unlocked in your archive. The mystery continues."; $("finishBtn").textContent="RETURN TO CASE ARCHIVE";$("nextBtn").disabled=true; $("card2").classList.remove("locked");$("card2").querySelector(".num").textContent="CASE 002 • UNLOCKED (NEXT CHAPTER COMING SOON)";$("ending").scrollIntoView({behavior:"smooth",block:"center"});}
+  function renderState(){order.forEach(k=>{const b=document.querySelector(`[data-clue="${k}"]`);if(state.found.includes(k)){b.classList.add("found");b.textContent="✓";b.setAttribute("aria-label",clues[k].title+" (found)");}});renderEvidence();showPuzzle();if(state.solved){$("nextBtn").disabled=false;$("feedback").textContent="Deduction solved. Continue to reveal the case conclusion.";}if(state.completed){$("ending").classList.add("show");$("endingText").textContent="The number 13 connects this case to an unrelated hotel ledger. Case 002 is marked as unlocked in your archive; its full investigation is coming in a future chapter.";$("card2").classList.remove("locked");$("card2").querySelector(".num").textContent="CASE 002 • UNLOCKED (NEXT CHAPTER COMING SOON)";}}
+  document.querySelectorAll("[data-clue]").forEach(b=>b.addEventListener("click",()=>inspect(b.dataset.clue,b)));
+  $("startBtn").addEventListener("click",openGame);
+  $("nextBtn").addEventListener("click",()=>{if(state.solved)finishCase();});
+  $("finishBtn").addEventListener("click",()=>{$("ending").classList.remove("show");$("gameShell").classList.remove("active");$("intro").scrollIntoView({behavior:"smooth"});});
+  $("backBtn").addEventListener("click",()=>{if(history.length>1)history.back();else location.href="index.html";});
+  $("soundToggle").addEventListener("click",()=>{soundOn=!soundOn;$("soundToggle").textContent=soundOn?"♪ Sound: On":"♪ Sound: Off";$("soundToggle").setAttribute("aria-pressed",String(soundOn));if(soundOn)beep(520);});
+  $("resetBtn").addEventListener("click",()=>{if(confirm("Reset all progress for Case 001 in this browser?")){localStorage.removeItem(KEY);state.found=[];state.solved=false;state.completed=false;state.unlocked=1;document.querySelectorAll("[data-clue]").forEach((b,i)=>{b.classList.remove("found");b.textContent=String(i+1);});$("feedback").textContent="";$("ending").classList.remove("show");$("nextBtn").disabled=true;$("card2").classList.add("locked");$("card2").querySelector(".num").textContent="CASE 002 • LOCKED";renderEvidence();showPuzzle();$("saveStatus").textContent="Progress reset."; }});
+  load();renderState();
+})();
+</script>
+</body>
+</html>
